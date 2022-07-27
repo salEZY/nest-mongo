@@ -10,7 +10,7 @@ export class UsersService {
   constructor(
     @InjectModel('Users')
     private readonly userModel: Model<User>,
-  ) {}
+  ) { }
   async signup(doc: CreateUserDTO): Promise<SignupRsp> {
     const newUser = new this.userModel(doc);
     return await newUser.save();
