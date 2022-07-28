@@ -4,9 +4,12 @@ import { UsersService } from './users.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from './schemas/users.schema';
 import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
+import { JwtModule } from '@nestjs/jwt'
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Users', schema: UserSchema }])],
+  imports: [
+    JwtModule.register({ secret: 'tajnajeujwtu' }),
+    MongooseModule.forFeature([{ name: 'Users', schema: UserSchema }])],
   controllers: [UsersController],
   providers: [UsersService, PasswordHasherService],
 })

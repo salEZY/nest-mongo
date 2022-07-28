@@ -6,4 +6,8 @@ export class PasswordHasherService {
     async hashPassword(password: string) {
         return await bcrypt.hash(password, 10)
     }
+
+    async comparePassword(password: string, encryptedPassword: string): Promise<boolean> {
+        return await bcrypt.compare(password, encryptedPassword)
+    }
 }

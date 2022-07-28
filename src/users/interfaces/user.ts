@@ -7,3 +7,8 @@ export interface User extends Document {
 export interface SignupRsp {
   readonly email: string;
 }
+
+
+export interface LoginRsp {
+  readonly token: string;
+}
