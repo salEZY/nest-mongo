@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { JwtStrategyService } from './users/auth/jwt-strategy/jwt-strategy.service';
 
 
 
@@ -15,6 +16,6 @@ import { MongooseModule } from '@nestjs/mongoose';
     UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategyService],
 })
 export class AppModule { }
