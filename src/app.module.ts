@@ -3,8 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { JwtStrategyService } from './users/auth/jwt-strategy/jwt-strategy.service';
-
 
 
 @Module({
@@ -13,9 +11,9 @@ import { JwtStrategyService } from './users/auth/jwt-strategy/jwt-strategy.servi
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
-    UsersModule,
+    UsersModule
   ],
   controllers: [AppController],
-  providers: [AppService, JwtStrategyService],
+  providers: [AppService],
 })
 export class AppModule { }
