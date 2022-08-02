@@ -5,6 +5,7 @@ import { CreateUserDTO } from './dto/create-user.dto';
 import { Get } from '@nestjs/common';
 import { Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { RolesGuard } from './auth/guards/role-guard';
 
 @Controller('users')
 export class UsersController {
@@ -19,8 +20,10 @@ export class UsersController {
     return await this.userService.login(user);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+
   @Get('profile')
+  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(RolesGuard)
   async profile(@Request() req) {
     return req.user
   }
