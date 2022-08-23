@@ -8,7 +8,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   // Swagger
-  const options = new DocumentBuilder().setTitle('Nest Mongo practice').setDescription('MONGO JWT').setVersion('1.0').addTag('Users').build()
+  const options = new DocumentBuilder().setTitle('Nest Mongo practice').setDescription('MONGO JWT').setVersion('1.0').addTag('Users').addBearerAuth().build()
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('api', app, document)
 
